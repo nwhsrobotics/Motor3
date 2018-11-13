@@ -7,14 +7,29 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * An example subsystem.  You can replace me with your own Subsystem.
+ * A simple motor control subsystem.
  */
-public class ExampleSubsystem extends Subsystem {
+public class Motor3Subsystem extends Subsystem {
+  TalonSRX m_talon = new TalonSRX(3);   // This subsystem has a motor controller with CAN id 3.
+
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+
+  public void start() {
+    // start motor by setting power to 20%
+    m_talon.set(ControlMode.PercentOutput, 0.2);
+  }
+
+  public void stop() {
+    // stop motor by setting power to 0%
+    m_talon.set(ControlMode.PercentOutput, 0.0);
+  }
 
   @Override
   public void initDefaultCommand() {

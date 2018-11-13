@@ -13,8 +13,8 @@ import frc.robot.Robot;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ExampleCommand extends Command {
-  public ExampleCommand() {
+public class StartMotor3Command extends Command {
+  public StartMotor3Command() {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.m_subsystem);
   }
@@ -27,12 +27,14 @@ public class ExampleCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.m_motor3.start();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    // This command is finished as soon as it runs.
+    return true;
   }
 
   // Called once after isFinished returns true
